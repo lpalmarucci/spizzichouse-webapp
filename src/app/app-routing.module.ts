@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthenticationComponent } from './app/modules/authentication/authentication.component';
 
 const routes: Routes = [
   {
@@ -7,7 +8,8 @@ const routes: Routes = [
     children: [
       {
         path: 'login',
-        pathMatch: 'full'
+        pathMatch: 'full',
+        component: AuthenticationComponent
       }
     ]
   }
