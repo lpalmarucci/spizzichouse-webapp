@@ -20,7 +20,6 @@ export class JwtInterceptor implements HttpInterceptor {
     });
     return next.handle(newReq).pipe(
       catchError((err: HttpErrorResponse) => {
-        debugger;
         if (err.error.statusCode === 401) {
           Utilities.removeValueFromLocalStorage('token')
           this.authentcationService.logout();

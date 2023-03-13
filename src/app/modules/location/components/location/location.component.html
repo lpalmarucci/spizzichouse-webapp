@@ -2,15 +2,16 @@
   <div class="inner-container">
     <div class="w-full flex justify-content-between align-items-center">
       <h1 class="title">Casate</h1>
-      <p-button label="Create" icon="pi pi-plus" iconPos="left" (click)="showDialog()"></p-button>
+      <p-button label="Create" icon="pi pi-plus" iconPos="left" (click)="showCreateEditDialog(true)"></p-button>
     </div>
-    <p-table [value]="locations">
+    <p-table [value]="locations" scrollHeight="calc(100dvh - 100px)" dataKey="locationId">
       <ng-template pTemplate="header">
         <tr>
           <th>Name</th>
           <th>Players</th>
           <th>Matches</th>
           <th>Data creazione</th>
+          <th></th>
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-location>
@@ -24,8 +25,35 @@
           </td>
           <td>{{location.matches}}</td>
           <td>{{location.createdAt | date:'dd/MM/yyyy HH:mm'}}</td>
+          <td>
+            <button
+              pButton
+              pRipple
+              type="button"
+              icon="pi pi-pencil"
+              pTooltip="Modifica casata"
+              tooltipPosition="top"
+              class="p-button-rounded p-button-text"
+              (click)="showCreateEditDialog(false, location)"
+            >
+            </button>
+
+            <button
+              pButton
+              pRipple
+              type="button"
+              icon="pi pi-times"
+              pTooltip="Elimina casata"
+              tooltipPosition="top"
+              class="p-button-rounded p-button-text p-button-danger"
+              (click)="deleteLocation(location.locationId, location.name)"
+            >
+            </button>
+          </td>
         </tr>
       </ng-template>
     </p-table>
   </div>
 </div>
+
+<p-confirmDialog header="Conferma l'operazione" icon="pi pi-exclamation-triangle" rejectButtonStyleClass="p-button-text"></p-confirmDialog>

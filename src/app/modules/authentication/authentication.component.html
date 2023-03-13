@@ -8,8 +8,7 @@
         <p-password formControlName="password" label="Password" [toggleMask]="true" placeholder="Password"
                     [feedback]="false"></p-password>
         <button type="button" (click)="handleSubmitForm($event)" pButton pRipple
-                class="w-full flex justify-content-center mt-2 outline-none" [disabled]="!loginForm.valid">
-          Login
+                class="w-full block justify-content-center mt-2 outline-none flex-auto" icon="pi pi-sign-in" [disabled]="!loginForm.valid" label="Login">
         </button>
       </form>
     </div>

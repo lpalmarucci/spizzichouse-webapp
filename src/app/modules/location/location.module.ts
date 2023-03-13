@@ -13,6 +13,8 @@ import { LocationCreateEditComponent } from './components/location-create-edit/l
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InputTextModule } from 'primeng/inputtext';
 import { RippleModule } from 'primeng/ripple';
+import { ConfirmationService } from 'primeng/api';
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
 
 const routes: Route[] = [
   {
@@ -39,10 +41,12 @@ const routes: Route[] = [
     FormsModule,
     ReactiveFormsModule,
     InputTextModule,
-    RippleModule
+    RippleModule,
+    ConfirmDialogModule
   ],
   providers: [
-    DialogService
+    DialogService,
+    ConfirmationService
   ]
 })
 export class LocationModule {
