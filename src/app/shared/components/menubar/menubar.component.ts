@@ -23,7 +23,7 @@ export class MenubarComponent implements OnInit {
       {
         label: 'Casate',
         icon: 'pi pi-fw pi-th-large',
-        routerLink: '/casate'
+        routerLink: '/locations'
       },
       {
         label: 'Giocatori',

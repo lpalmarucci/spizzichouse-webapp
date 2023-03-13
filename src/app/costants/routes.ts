@@ -1,4 +1,4 @@
 export default {
-  LOGIN: '/login',
+  LOGIN: '/auth/login',
   HOME: '/home'
 }

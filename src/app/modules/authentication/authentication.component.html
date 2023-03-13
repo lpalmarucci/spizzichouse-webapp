@@ -1,15 +1,17 @@
-<div class="w-full h-full flex justify-content-center align-content-center">
-  <div class="flex flex-column justify-content-center align-items-center gap-4 sm:gap-6 lg:gap-8">
-    <h1 class="text-2xl sm:text-4xl lg:text-7xl">Welcome to SPIZZICHOUSE</h1>
-    <form [formGroup]="loginForm" class="flex flex-column gap-3">
-      <input id="username1" type="text" aria-describedby="username1-help" pInputText formControlName="username"
-             placeholder="Username"/>
-      <p-password formControlName="password" label="Password" [toggleMask]="true" placeholder="Password"
-                  [feedback]="false"></p-password>
-      <button type="button" (click)="handleSubmitForm($event)" pButton pRipple
-              class="w-full flex justify-content-center mt-2 outline-none" [disabled]="!loginForm.valid">
-        Login
-      </button>
-    </form>
+<div class="overflow-y-hidden flex w-full h-full justify-content-center align-items-center">
+  <div class="w-full h-full min-h-screen flex justify-content-center align-content-center">
+    <div class="flex flex-column justify-content-center align-items-center gap-4 sm:gap-6 lg:gap-8">
+      <h1 class="text-2xl sm:text-4xl lg:text-7xl">Welcome to SPIZZICHOUSE</h1>
+      <form [formGroup]="loginForm" class="flex flex-column gap-3">
+        <input id="username1" type="text" aria-describedby="username1-help" pInputText formControlName="username"
+               placeholder="Username"/>
+        <p-password formControlName="password" label="Password" [toggleMask]="true" placeholder="Password"
+                    [feedback]="false"></p-password>
+        <button type="button" (click)="handleSubmitForm($event)" pButton pRipple
+                class="w-full flex justify-content-center mt-2 outline-none" [disabled]="!loginForm.valid">
+          Login
+        </button>
+      </form>
+    </div>
   </div>
 </div>

@@ -1,0 +1,8 @@
+<div class="m-4">
+  <form [formGroup]="locationForm" class="flex flex-column gap-3 w-fit-content">
+    <label for="name">Name</label>
+    <input type="text" placeholder="Es. Principato" pInputText formControlName="name"/>
+
+    <button type="button" pButton pRipple class="flex-auto w-min mt-4" (click)="handleCreateLocation()" [disabled]="locationForm.invalid">Salva</button>
+  </form>
+</div>

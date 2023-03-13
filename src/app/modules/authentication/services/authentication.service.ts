@@ -3,7 +3,7 @@ import {IAccessToken, ILogin} from "../models/authentication";
 import {HttpClient, HttpErrorResponse} from "@angular/common/http";
 import {environment} from "../../../../environments/environment";
 import {BehaviorSubject, catchError, map, Observable, of, tap} from "rxjs";
-import {ACCESS_TOKEN} from "../../../shared/costants/localStorageKeys";
+import {ACCESS_TOKEN} from "../../../costants/localStorageKeys";
 import {MessageService} from "primeng/api";
 
 @Injectable({
@@ -12,7 +12,7 @@ import {MessageService} from "primeng/api";
 export class AuthenticationService {
 
   private readonly API_URL: string = environment.apiBaseUrl;
-  private readonly loggedIn = new BehaviorSubject<boolean>(this.getAccessToken());
+  private readonly loggedIn = new BehaviorSubject<boolean>(!!this.getAccessToken());
 
   get isLoggedIn(): Observable<boolean> {
     return this.loggedIn.asObservable();
@@ -27,6 +27,7 @@ export class AuthenticationService {
       tap(() => this.loggedIn.next(true)),
       map(() => true),
       catchError((err: HttpErrorResponse) => {
+        debugger;
         this.messageService.add({
           summary: `An error occurred (${err.error.statusCode})`,
           detail: err.error.message,
@@ -37,14 +38,21 @@ export class AuthenticationService {
     );
   }
 
+  logout(){
+    this.loggedIn.next(false);
+  }
+
   private saveAccessToken(token: string): void {
+    const previousValue = localStorage.getItem(ACCESS_TOKEN)
+    if (previousValue)
+      localStorage.removeItem(ACCESS_TOKEN)
     localStorage.setItem(ACCESS_TOKEN, token)
   }
 
-  private getAccessToken(): boolean {
+  getAccessToken(): string {
     const token: string | null = localStorage.getItem(ACCESS_TOKEN);
     if (token)
-      return !!token;
-    return false;
+      return token;
+    return '';
   }
 }

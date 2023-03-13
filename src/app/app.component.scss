@@ -1,0 +1,35 @@
+
+:host {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+
+  mat-progress-bar {
+    z-index: 1003;
+  }
+
+  .body {
+    /* flex item per spingere il footer verso il basso sempre */
+    flex: 1;
+    height: 100%;
+
+
+    /* la classe content viene applicata su tutte le pagine ad eccezione della pagina degli styles. vedi main-root component.*/
+    .content {
+      /* centrare il contenuto rispetto al body*/
+      margin: 0 auto;
+      width: 100%;
+
+      /* aggiungere delle barre laterali in caso di risoluzione superiore a 1440px*/
+      max-width: 1920px;
+    }
+  }
+
+  footer {
+    padding: 20px;
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    z-index: 1;
+  }
+}

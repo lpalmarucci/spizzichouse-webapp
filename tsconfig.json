@@ -23,6 +23,11 @@
       "ES2020",
       "dom"
     ],
+    "paths": {
+      "@angular/*": [
+        "./node_modules/@angular/*"
+      ]
+    },
     "strictPropertyInitialization": false
   },
   "angularCompilerOptions": {

@@ -9,12 +9,9 @@
 
 html,
 body {
-  height: 100dvh;
+  height: 100%;
+  overflow: hidden;
   font-family: "Muli", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-}
-
-body {
-  width: 100dvw;
 }
 
 .-translate-x-50 {
@@ -25,15 +22,66 @@ body {
   transform: translateY(-50%);
 }
 
-
-.p-toast-message {
-  background-color: #E1CFE7 !important;
-  border: solid #8A427A !important;
-  border-width: 0 0 0 6px !important;
-  color: #2c1e30 !important;
-
-  .p-toast-icon-close {
-    color: #2c1e30 !important;
-  }
+.loader-container {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  width: 100%;
+  height: 100dvh;
+  text-align: center;
+  top: 0;
 }
 
+.loader-overlay {
+  position: absolute;
+  width: 100dvw;
+  height: 100dvh;
+  z-index: 998;
+  background-color: rgba(120, 120, 120, 0.3);
+  top: 0;
+}
+
+
+.container {
+  width: 100%;
+  height: 100%;
+
+  flex: auto;
+  position: relative;
+}
+
+.inner-container{
+  padding: 2rem;
+}
+
+.title{
+  margin-bottom: 1rem;
+}
+
+/* .w-full{
+  width: 100%;
+}
+
+.h-full{
+  height: 100%;
+}
+
+.flex{
+  display: flex;
+  flex: auto;
+}
+
+.justify-content-center{
+  justify-content: center;
+}
+
+.justify-content-between{
+  justify-content: space-between;
+}
+
+.align-items-center{
+  align-items: center;
+}
+ */

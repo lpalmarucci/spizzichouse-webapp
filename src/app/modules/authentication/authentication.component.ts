@@ -3,7 +3,7 @@ import {FormBuilder, Validators} from "@angular/forms";
 import {AuthenticationService} from "./services/authentication.service";
 import {ILogin} from "./models/authentication";
 import {Router} from "@angular/router";
-import Routes from "../../shared/costants/routes";
+import Routes from "../../costants/routes";
 import {MessageService} from "primeng/api";
 
 @Component({
